@@ -18,3 +18,5 @@ Saída Esperada:
 
 Deixe sua solução nos comentários e dê dicas nas soluções dos seus colegas.
 Bons códigos */
+
+console.lop("oi");
