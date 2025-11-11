@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex 11</title>
+    <script src="ex11.js"></script>
+</head>
+<body>
+    <h1>pilha de cartas</h1>
+    do{
+    let escolha = prompt('lista dos pacientes:\n'+
+    [i] + '°' + lista + 
+    '\n1.novo-paciente'+
+    '\n2.consultar-paciente'+
+    '\n3.sair'
+)
+
+switch(escolha){
+     case '1':
+        nome = prompt('informe o nome do paciente')
+        lista.push(nome);
+     break
+     case '2':
+        prompt('o paciente a ser consultado é :\n' + lista.shift())
+    break
+    case '3':
+        alert('saindo...')
+}
+
+}while(escolha != '3')
+</body>
+</html>
