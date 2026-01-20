@@ -34,9 +34,14 @@ function novaVaga(){
 
 function exibirVaga(){
     const indice = prompt("informe o indice da vaga que desejá exibir:")
+    if(indice >= vagas.length || indice < 0){
+           alert("Indice invalido")
+           return
+    }
+
     const vaga = vagas[indice]
 
-    const vagasEmtexto = vaga.reduce(function (acumulador, candidato){
+    const vagasEmtexto = vaga.candidatos.reduce(function (acumulador, candidato){
         return acumulador + '\n-' + candidato
 
     }, " ")
@@ -58,12 +63,13 @@ function inscreverCandidato(){
      const vaga = vagas[indice]
 
      const confirmacao = confirm(
-        'Desejá increver este candidato' + candidatos + ' na vaga ' + indice + "?\n" +
-        "Nome :" + vaga.Nome + "\nDescrição" + vaga.descricao + "\nData Limite: " + vaga.dataLimite
+        'Desejá increver este candidato ' + candidato + ' na vaga ' + indice + "?\n" +
+        "Nome :" + vaga.nome + "\nDescrição :" + vaga.descricao + "\nData Limite: " + vaga.dataLimite
 
      )
 
      if(confirmacao){
+        vaga.candidatos.push(candidato)
         alert('inscrição criada')
      }
 
@@ -88,49 +94,7 @@ function excluirVaga(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function vagas(){
+function vagasEnprego(){
    let options = prompt('Escolha as vagas:\n' +
         '\n1.Listar vagas disponiveis' +
         '\n2.Criar uma nova vaga' +
@@ -149,18 +113,23 @@ function executar(){
 
    do {
 
-    menu = vagas()
+    menu = vagasEnprego()
 
     switch(menu){
         case '1' :
-            break
+             listarVagas()
+             break
         case '2':
+            novaVaga()
             break
         case '3' :
+            exibirVaga()
             break
         case '4':
+            inscreverCandidato()
             break
         case '5':
+            excluirVaga()
             break
         case '6':
             alert('saindo do menu.')
